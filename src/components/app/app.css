@@ -1,0 +1,8 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.toggle-btn {
+  margin-bottom: 15px;
+}
