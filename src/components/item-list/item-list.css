@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.item-list {
+  margin-bottom: 25px;
+}
+
 .item-list .list-group-item:hover {
   background-color: #444;
 }

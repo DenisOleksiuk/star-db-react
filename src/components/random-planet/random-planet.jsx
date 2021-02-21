@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SwapiService from '../../services';
+import { SwapiService } from '../../services';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
@@ -14,10 +14,14 @@ export default class RandomPlanet extends Component {
     error: false,
     showPlanet: true,
    }
-
-  constructor(props) {
-    super(props);
+  
+  componentDidMount() {
     this.updatePlanet();
+  }
+  
+  componentWillUnmount() {
+    clearTimeout(this.timeOut);
+
   }
 
   onPlanetLoaded = (planet) => {
@@ -31,11 +35,12 @@ export default class RandomPlanet extends Component {
     console.error(err);
   }
 
-  updatePlanet() {
+  updatePlanet = () => {
     const id = Math.floor(Math.random() * 25) + 2;
     this.swapiService.getPlanet(id)
     .then(this.onPlanetLoaded)
     .catch(this.onErrorMessage);
+    // this.timeOut = setTimeout(this.updatePlanet, 2500);
   }
 
   render() {
