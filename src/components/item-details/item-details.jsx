@@ -29,7 +29,9 @@ export default class ItemDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.selectedItem !== prevProps.selectedItem) {
+    if (this.props.selectedItem !== prevProps.selectedItem
+      || this.props.getData !== prevProps.getData
+      || this.props.getImageUrl !== prevProps.getImageUrl) {
       this.updateitem();
     }
   }

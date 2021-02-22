@@ -18,11 +18,6 @@ export default class RandomPlanet extends Component {
   componentDidMount() {
     this.updatePlanet();
   }
-  
-  componentWillUnmount() {
-    clearTimeout(this.timeOut);
-
-  }
 
   onPlanetLoaded = (planet) => {
     this.setState({ planet });
@@ -40,7 +35,6 @@ export default class RandomPlanet extends Component {
     this.swapiService.getPlanet(id)
     .then(this.onPlanetLoaded)
     .catch(this.onErrorMessage);
-    // this.timeOut = setTimeout(this.updatePlanet, 2500);
   }
 
   render() {
